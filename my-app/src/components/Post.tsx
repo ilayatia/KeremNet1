@@ -55,13 +55,13 @@ interface Props{
 const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children})=> {
   const [likes,setLikes] = React.useState(0)
 
+
   const date_and_time = date.toDateString() +" "+ date.getHours()+":"+date.getMinutes()
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -104,7 +104,9 @@ const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children
         <CardContent>
           <Typography sx={{ marginBottom: 2 }}>Comments:</Typography>
           <Typography sx={{ marginBottom: 2 }}>
-            {Children.map(children,child=><>{child}</>)}
+          </Typography>
+          <Typography sx={{ marginBottom: 2 }}>
+            {Children.map(children,com=><>{com}</>)}
           </Typography>
         </CardContent>
       </Collapse>
