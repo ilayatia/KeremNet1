@@ -15,6 +15,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Children } from 'react';
+import { useAppDispatch, useAppSelector } from './redux/hooks';
+import { increment } from './redux/CounterSlice';
 
 
 
@@ -47,11 +49,14 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 interface Props{
     name:string
-    likes:number
     text:string
     date:Date
 }
-const Post:React.FC<React.PropsWithChildren<Props>> = ({name,likes,text,date ,children})=> {
+const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children})=> {
+
+  const count = useAppSelector((state) => state.counter.value);
+  const dispatch = useAppDispatch();
+
   const date_and_time = date.toDateString() +" "+ date.getHours()+":"+date.getMinutes()
   const [expanded, setExpanded] = React.useState(false);
 
@@ -81,8 +86,8 @@ const Post:React.FC<React.PropsWithChildren<Props>> = ({name,likes,text,date ,ch
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          {likes}
+        <IconButton onClick={() => dispatch(increment())}aria-label="add to favorites">
+          {count}
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
