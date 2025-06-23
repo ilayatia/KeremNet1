@@ -53,9 +53,7 @@ interface Props{
     date:Date
 }
 const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children})=> {
-
-  const count = useAppSelector((state) => state.counter.value);
-  const dispatch = useAppDispatch();
+  const [likes,setLikes] = React.useState(0)
 
   const date_and_time = date.toDateString() +" "+ date.getHours()+":"+date.getMinutes()
   const [expanded, setExpanded] = React.useState(false);
@@ -86,8 +84,8 @@ const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton onClick={() => dispatch(increment())}aria-label="add to favorites">
-          {count}
+        <IconButton onClick={() => {setLikes(v=>v+1)}}aria-label="add to favorites">
+          {likes}
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
