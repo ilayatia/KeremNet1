@@ -1,0 +1,23 @@
+{
+    "posts":[{
+        "name":"ilay",
+        "date":"1234",
+        "text":"hey im data",
+        "comments":{"name":"master shifu","text":"agreed"}
+    },{
+        "name":"ilay",
+        "date":"1234",
+        "text":"hey im data",
+        "comments":{"name":"master shifu","text":"agreed"}
+    },{
+        "name":"ilay",
+        "date":"1234",
+        "text":"hey im data",
+        "comments":{"name":"master shifu","text":"agreed"}
+    },{
+        "name":"ilay",
+        "date":"1234",
+        "text":"hey im data",
+        "comments":{"name":"master shifu","text":"agreed"}
+    }]
+    }

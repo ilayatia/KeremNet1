@@ -1,4 +1,6 @@
-
+.margin{
+  margin: 0.3em;
+}
 .App {
   text-align: center;
 }
