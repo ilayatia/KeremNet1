@@ -15,8 +15,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Children } from 'react';
-import { useAppDispatch, useAppSelector } from './redux/hooks';
-import { increment } from './redux/CounterSlice';
+import { Comm, Props } from './types';
+import Comment from './Comment';
 
 
 
@@ -47,16 +47,9 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     },
   ],
 }));
-interface Props{
-    name:string
-    text:string
-    date:Date
-}
-const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children})=> {
-  const [likes,setLikes] = React.useState(0)
 
+const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date,likes,comments}:Props)=> {
 
-  const date_and_time = date.toDateString() +" "+ date.getHours()+":"+date.getMinutes()
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -76,7 +69,7 @@ const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children
           </IconButton>
         }
         title={name}
-        subheader={date_and_time}
+        subheader={date}
       />
       <CardContent>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -84,7 +77,7 @@ const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton onClick={() => {setLikes(v=>v+1)}}aria-label="add to favorites">
+        <IconButton aria-label="add to favorites">
           {likes}
           <FavoriteIcon />
         </IconButton>
@@ -106,9 +99,10 @@ const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children
           <Typography sx={{ marginBottom: 2 }}>
           </Typography>
           <Typography sx={{ marginBottom: 2 }}>
-            {Children.map(children,com=><>{com}</>)}
+            {comments.map((com:Comm)=><Comment name={com.name} text={com.text}/>)}
           </Typography>
         </CardContent>
+
       </Collapse>
     </Card>
   );
