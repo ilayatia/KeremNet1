@@ -16,7 +16,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Children } from 'react';
 import Comment from './Comment';
-
+import {Props,Comm} from './types'
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -45,17 +45,11 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     },
   ],
 }));
-interface Props{
-    name:string
-    text:string
-    date:Date
-}
-const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children})=> {
-  const [likes,setLikes] = React.useState(0)
-  const [newComment,setNewComment] = React.useState("")
-  const [comments,seComment] = React.useState<string[]>([])
 
-  const date_and_time = date.toDateString() +" "+ date.getHours()+":"+date.getMinutes()
+const Post:React.FC<Props> = ({name,likes,text,date,comments})=> {
+  const [newComment,setNewComment] = React.useState("")
+  const [mycomments,seComment] = React.useState<string[]>([])
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -75,7 +69,7 @@ const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children
           </IconButton>
         }
         title={name}
-        subheader={date_and_time}
+        subheader={date}
       />
       <CardContent className="post">
         <Typography  variant="body2">
@@ -83,7 +77,7 @@ const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton onClick={() => {setLikes(v=>v+1)}}aria-label="add to favorites">
+        <IconButton aria-label="add to favorites">
           {likes}
           <FavoriteIcon />
         </IconButton>
@@ -105,10 +99,10 @@ const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children
           <Typography sx={{ marginBottom: 2 }}>
           </Typography>
           <Typography sx={{ marginBottom: 2 }}>
-            {Children.map(children,com=><>{com}</>)}
-            {Children.map(comments,com=><><Comment name='anonymous'   text={com}></Comment></>)}
+            {comments.map(comm=><Comment name={comm.name} text={comm.text }></Comment>)}
+            {mycomments.map(com=><><Comment name='Anonymous' text={com}></Comment></>)}
             <input value={newComment} onChange={(e)=>setNewComment(e.target.value)}></input>
-            <input type='submit' onClick={()=>seComment([...comments,newComment])}></input>
+            <input type='submit' onClick={()=>seComment([...mycomments,newComment])}></input>
           </Typography>
         </CardContent>
       </Collapse>
