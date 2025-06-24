@@ -15,6 +15,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Children } from 'react';
+import Comment from './Comment';
 
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -51,7 +52,8 @@ interface Props{
 }
 const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children})=> {
   const [likes,setLikes] = React.useState(0)
-
+  const [newComment,setNewComment] = React.useState("")
+  const [comments,seComment] = React.useState<string[]>([])
 
   const date_and_time = date.toDateString() +" "+ date.getHours()+":"+date.getMinutes()
   const [expanded, setExpanded] = React.useState(false);
@@ -60,10 +62,10 @@ const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children
     setExpanded(!expanded);
   };
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card  sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: red[500] }}>
             {name[0]}
           </Avatar>
         }
@@ -75,8 +77,8 @@ const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children
         title={name}
         subheader={date_and_time}
       />
-      <CardContent>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+      <CardContent className="post">
+        <Typography  variant="body2">
           {text}
         </Typography>
       </CardContent>
@@ -104,6 +106,9 @@ const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date ,children
           </Typography>
           <Typography sx={{ marginBottom: 2 }}>
             {Children.map(children,com=><>{com}</>)}
+            {Children.map(comments,com=><><Comment name='anonymous'   text={com}></Comment></>)}
+            <input value={newComment} onChange={(e)=>setNewComment(e.target.value)}></input>
+            <input type='submit' onClick={()=>seComment([...comments,newComment])}></input>
           </Typography>
         </CardContent>
       </Collapse>

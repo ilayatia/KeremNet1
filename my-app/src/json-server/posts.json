@@ -1,23 +1,23 @@
 {
     "posts":[{
-        "name":"ilay",
+        "name":"Ilay",
         "date":"1234",
-        "text":"hey im data",
-        "comments":{"name":"master shifu","text":"agreed"}
+        "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+        "comments":[{"name":"master shifu","text":"agreed"}]
     },{
-        "name":"ilay",
+        "name":"Foo",
         "date":"1234",
-        "text":"hey im data",
-        "comments":{"name":"master shifu","text":"agreed"}
+        "text":"Course kerem is the best!",
+        "comments":[{"name":"master shifu","text":"agreed"},{"name":"Tiger","text":"agreed"},{"name":"master shifu","text":"agreed"}]
     },{
-        "name":"ilay",
+        "name":"Bar",
         "date":"1234",
-        "text":"hey im data",
-        "comments":{"name":"master shifu","text":"agreed"}
+        "text":"אני אוהב שניצל",
+        "comments":[{"name":"master shifu","text":"agreed"},{"name":"Tiger","text":"agreed"},{"name":"master shifu","text":"agreed"}]
     },{
-        "name":"ilay",
+        "name":"Baz",
         "date":"1234",
-        "text":"hey im data",
-        "comments":{"name":"master shifu","text":"agreed"}
+        "text":"גם הכוכבים דולקים על אש קטנה",
+        "comments":[{"name":"Tiger","text":"agreed"},{"name":"master shifu","text":"agreed"},{"name":"master shifu","text":"agreed"}]
     }]
     }
