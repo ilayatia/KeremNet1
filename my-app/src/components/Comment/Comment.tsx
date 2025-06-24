@@ -2,9 +2,13 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { Comm, Props } from '../Models/types';
 
-const Comment :React.FC<Comm> = ({text,name}:Comm)=>{
+export interface CommentProps{
+    name:string
+    text:string
+}
+
+const Comment :React.FC<CommentProps> = ({text,name}:CommentProps)=>{
     return <div><strong className='content'>{name}</strong> : {text}</div>;
 }
 

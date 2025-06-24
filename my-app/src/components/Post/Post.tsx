@@ -15,10 +15,14 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Children } from 'react';
-import { Comm, Props } from '../Models/types';
-import Comment from '../Comment/Comment';
-
-
+import Comment,{CommentProps} from '../Comment/Comment';
+export interface PostProps{
+    name:string
+    text:string
+    date:string
+    likes:number
+    comments:CommentProps[]
+}
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -48,7 +52,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   ],
 }));
 
-const Post:React.FC<Props> = ({name,text,date,likes,comments}:Props)=> {
+const Post:React.FC<PostProps> = ({name,text,date,likes,comments}:PostProps)=> {
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -99,7 +103,7 @@ const Post:React.FC<Props> = ({name,text,date,likes,comments}:Props)=> {
           <Typography sx={{ marginBottom: 2 }}>
           </Typography>
           <Typography sx={{ marginBottom: 2 }}>
-            {comments.map((com:Comm)=><Comment name={com.name} text={com.text}/>)}
+            {comments.map((com:CommentProps)=><Comment name={com.name} text={com.text}/>)}
           </Typography>
         </CardContent>
 

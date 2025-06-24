@@ -1,16 +1,16 @@
 import Comment from '../Comment/Comment';
-import Post from '../Post/Post';
+import Post, { PostProps } from '../Post/Post';
 import React, { useState, useEffect } from "react"
 
 
-import {Props,Comm} from '../Models/types'
+
 const MainPage =()=>{
-    const [posts, setPosts] = useState<Props[]>([])//save the posts to state
+    const [posts, setPosts] = useState<PostProps[]>([])//save the posts to state
 
     useEffect(() => {//fetches the data from the server
     fetch("/api/posts")
       .then((response) => response.json())
-      .then((json:Props[]) =>{setPosts(json)})
+      .then((json:PostProps[]) =>{setPosts(json)})
   }, [])
 
     return <>
@@ -19,7 +19,7 @@ const MainPage =()=>{
             <div className="content">KeremNet</div>
         </div>
     <div>
-       {posts.map((post:Props) => (
+       {posts.map((post:PostProps) => (
         <>
         <div className='margin'></div>
         <Post comments={post.comments} likes={post.likes} name={post.name} date={post.date} text={post.text} />
