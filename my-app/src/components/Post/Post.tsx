@@ -17,12 +17,10 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Children } from 'react';
 import Comment from '../Comment/Comment';
 import { CommentModel } from '../../Models/Comment';
+import { PostModel } from '../../Models/Post';
+
 interface PostProps{
-    name:string
-    text:string
-    date:string
-    likes:number
-    comments:CommentModel[]
+    post:PostModel
 }
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -53,7 +51,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   ],
 }));
 
-const Post:React.FC<PostProps> = ({name,text,date,likes,comments}:PostProps)=> {
+const Post:React.FC<PostProps> = ({post}:PostProps)=> {
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -65,7 +63,7 @@ const Post:React.FC<PostProps> = ({name,text,date,likes,comments}:PostProps)=> {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {name[0]}
+            {post.name[0]}
           </Avatar>
         }
         action={
@@ -73,17 +71,17 @@ const Post:React.FC<PostProps> = ({name,text,date,likes,comments}:PostProps)=> {
             <MoreVertIcon />
           </IconButton>
         }
-        title={name}
-        subheader={date}
+        title={post.name}
+        subheader={post.date}
       />
       <CardContent>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {text}
+          {post.text}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          {likes}
+          {post.likes}
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
@@ -104,7 +102,7 @@ const Post:React.FC<PostProps> = ({name,text,date,likes,comments}:PostProps)=> {
           <Typography sx={{ marginBottom: 2 }}>
           </Typography>
           <Typography sx={{ marginBottom: 2 }}>
-            {comments.map((comment:CommentModel)=><Comment commentModel={{name:comment.name,text:comment.text}}/>)}
+            {post.comments.map((comment:CommentModel)=><Comment commentModel={{name:comment.name,text:comment.text}}/>)}
           </Typography>
         </CardContent>
 

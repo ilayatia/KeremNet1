@@ -1,0 +1,24 @@
+{
+    "posts":[
+        {
+        "name":"string",
+        "text":"string",
+        "date":"string",
+        "likes":66,
+        "comments":[{
+            "name":"string",
+            "text":"string"
+        }]
+    },
+    {
+        "name":"string",
+        "text":"string",
+        "date":"string",
+        "likes":66,
+        "comments":[{
+            "name":"string",
+            "text":"string"
+        }]
+    }
+    ]
+}

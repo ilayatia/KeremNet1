@@ -3,12 +3,21 @@ import logo from './logo.svg';
 import './App.css';
 import Comment from './components/Comment/Comment';
 import Post from './components/Post/Post';
+import HomePage from './components/HomePage/HomePage';
+import { createServer } from "miragejs"
+import data from './components/Json-file/data.json'
+
+createServer({
+  routes() {
+    this.get("/api/posts", () => data.posts)
+  },
+})
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-       <Post likes={66} comments={[{name:"master shifu",text:"i agree"},{name:"po",text:"im hungry"}]} name="Ilay" date="22/09/2004 12:12" text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum' />
+      <HomePage/>
       </header>
     </div>
   );
