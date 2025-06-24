@@ -18,6 +18,7 @@ import { Children } from 'react';
 import Comment from '../Comment/Comment';
 import { CommentModel } from '../../Models/Comment';
 import { PostModel } from '../../Models/Post';
+import './Post.css'
 
 interface PostProps{
     post:PostModel
@@ -53,6 +54,9 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 const Post:React.FC<PostProps> = ({post}:PostProps)=> {
 
+  const [newComment,SetNewComment] = React.useState<string>("")
+  const [comments,SetComments] = React.useState<string[]>([])
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -74,8 +78,8 @@ const Post:React.FC<PostProps> = ({post}:PostProps)=> {
         title={post.name}
         subheader={post.date}
       />
-      <CardContent>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+      <CardContent className="orange">
+        <Typography  variant="body2" sx={{ color: 'text.secondary' }}>
           {post.text}
         </Typography>
       </CardContent>
@@ -102,6 +106,9 @@ const Post:React.FC<PostProps> = ({post}:PostProps)=> {
           <Typography sx={{ marginBottom: 2 }}>
           </Typography>
           <Typography sx={{ marginBottom: 2 }}>
+            <input value={newComment} onChange={(e)=>{SetNewComment(e.target.value)}}></input>
+            <input type='submit' onClick={()=>{SetComments(prev=>[newComment,...prev])}}></input>
+            {comments.map((comment)=><Comment commentModel={{name:"Anonymous",text:comment}}/>)}
             {post.comments.map((comment:CommentModel)=><Comment commentModel={{name:comment.name,text:comment.text}}/>)}
           </Typography>
         </CardContent>
