@@ -5,9 +5,11 @@ import Container from '@mui/material/Container';
 import './Comment.css'
 import { CommentModel } from '../../Models/Comment';
 
-export interface CommentProps extends CommentModel{}
-const Comment :React.FC<CommentProps> = ({text,name}:CommentProps)=>{
-    return <div><strong className='content'>{name}</strong> : {text}</div>;
+interface CommentProps {
+    commentModel:CommentModel
+}
+const Comment :React.FC<CommentProps> = ({commentModel}:CommentProps)=>{
+    return <div><strong className='content'>{commentModel.name}</strong> : {commentModel.text}</div>;
 }
 
 export default Comment

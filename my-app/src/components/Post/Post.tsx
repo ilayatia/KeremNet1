@@ -15,7 +15,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Children } from 'react';
-import Comment,{CommentProps} from '../Comment/Comment';
+import Comment from '../Comment/Comment';
 import { CommentModel } from '../../Models/Comment';
 export interface PostProps{
     name:string
@@ -104,7 +104,7 @@ const Post:React.FC<PostProps> = ({name,text,date,likes,comments}:PostProps)=> {
           <Typography sx={{ marginBottom: 2 }}>
           </Typography>
           <Typography sx={{ marginBottom: 2 }}>
-            {comments.map((comment:CommentProps)=><Comment name={comment.name} text={comment.text}/>)}
+            {comments.map((comment:CommentModel)=><Comment commentModel={{name:comment.name,text:comment.text}}/>)}
           </Typography>
         </CardContent>
 
