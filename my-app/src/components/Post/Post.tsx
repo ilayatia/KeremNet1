@@ -17,7 +17,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Children } from 'react';
 import Comment from '../Comment/Comment';
 import { CommentModel } from '../../Models/Comment';
-export interface PostProps{
+interface PostProps{
     name:string
     text:string
     date:string
