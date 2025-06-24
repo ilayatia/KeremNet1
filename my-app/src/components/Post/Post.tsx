@@ -59,7 +59,7 @@ const Post:React.FC<PostProps> = ({post}:PostProps)=> {
     setExpanded(!expanded);
   };
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width: 330 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
