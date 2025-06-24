@@ -46,7 +46,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   ],
 }));
 
-const Post:React.FC<Props> = ({name,likes,text,date,comments})=> {
+const Post:React.FC<Props> = ({name,likes,text,date,comments}:Props)=> {
   const [newComment,setNewComment] = React.useState("")
   const [mycomments,seComment] = React.useState<string[]>([])
 
