@@ -103,7 +103,7 @@ const Post:React.FC<PostProps> = ({name,text,date,likes,comments}:PostProps)=> {
           <Typography sx={{ marginBottom: 2 }}>
           </Typography>
           <Typography sx={{ marginBottom: 2 }}>
-            {comments.map((com:CommentProps)=><Comment name={com.name} text={com.text}/>)}
+            {comments.map((comment:CommentProps)=><Comment name={comment.name} text={comment.text}/>)}
           </Typography>
         </CardContent>
 
