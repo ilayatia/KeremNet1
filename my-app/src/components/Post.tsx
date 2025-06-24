@@ -48,7 +48,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 const Post:React.FC<Props> = ({name,likes,text,date,comments}:Props)=> {
   const [newComment,setNewComment] = React.useState("")
-  const [mycomments,seComment] = React.useState<string[]>([])
+  const [mycomments,setComment] = React.useState<string[]>([])
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -102,7 +102,7 @@ const Post:React.FC<Props> = ({name,likes,text,date,comments}:Props)=> {
             {comments.map(comm=><Comment name={comm.name} text={comm.text }></Comment>)}
             {mycomments.map(com=><><Comment name='Anonymous' text={com}></Comment></>)}
             <input value={newComment} onChange={(e)=>setNewComment(e.target.value)}></input>
-            <input type='submit' onClick={()=>seComment([...mycomments,newComment])}></input>
+            <input type='submit' onClick={()=>setComment([...mycomments,newComment])}></input>
           </Typography>
         </CardContent>
       </Collapse>
