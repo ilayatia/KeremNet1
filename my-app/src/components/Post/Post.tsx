@@ -15,8 +15,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Children } from 'react';
-import { Comm, Props } from './types';
-import Comment from './Comment';
+import { Comm, Props } from '../Models/types';
+import Comment from '../Comment/Comment';
 
 
 

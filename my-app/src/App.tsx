@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Comment from './components/Comment';
-import RecipeReviewCard from './components/Post';
+import Comment from './components/Comment/Comment';
+import RecipeReviewCard from './components/Post/Post';
 
 function App() {
   return (
