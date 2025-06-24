@@ -48,7 +48,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   ],
 }));
 
-const Post:React.FC<React.PropsWithChildren<Props>> = ({name,text,date,likes,comments}:Props)=> {
+const Post:React.FC<Props> = ({name,text,date,likes,comments}:Props)=> {
 
   const [expanded, setExpanded] = React.useState(false);
 
