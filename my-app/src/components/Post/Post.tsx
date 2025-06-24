@@ -16,12 +16,13 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Children } from 'react';
 import Comment,{CommentProps} from '../Comment/Comment';
+import { CommentModel } from '../../Models/Comment';
 export interface PostProps{
     name:string
     text:string
     date:string
     likes:number
-    comments:CommentProps[]
+    comments:CommentModel[]
 }
 
 interface ExpandMoreProps extends IconButtonProps {
