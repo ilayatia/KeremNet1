@@ -5,7 +5,7 @@ import { PostModel } from "../../Models/Post";
 import useJson from "../Hooks/use-json";
 
 export default function HomePage() {
-  let { posts } = useJson();
+  let posts = useJson();
   return (
     <>
       {posts.map((post, index) => (
