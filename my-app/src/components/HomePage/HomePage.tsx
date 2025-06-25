@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Post from "../Post/Post";
-import "./HomePage.css";
 import { PostModel } from "../../Models/Post";
 import useJson from "../Hooks/use-json";
 
