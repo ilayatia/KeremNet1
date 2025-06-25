@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
 import { PostModel } from "../../Models/Post"
 
-export default function useJson(){
+interface HookReturnType{
+    posts:PostModel[]
+}
+export default function useJson():HookReturnType{
     let [posts, setPosts] = useState<PostModel[]>([])
     
     useEffect(() => {
