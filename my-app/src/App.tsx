@@ -7,15 +7,14 @@ import HomePage from "./components/HomePage/HomePage";
 import { createServer } from "miragejs";
 import data from "./backend/data.json";
 import { StartServer } from "./backend/start-mock-server";
+import Layout from "./components/applicationLayout/Layout/Layout";
 
 StartServer()
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <HomePage />
-      </header>
+        <Layout/>
     </div>
   );
 }
