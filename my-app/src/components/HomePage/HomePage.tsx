@@ -7,8 +7,8 @@ import useJson from "../Hooks/use-json";
 export default function HomePage(){
     let {posts}= useJson()
     return <>
-       {posts.map(post=>{
-        return <div key={posts.indexOf(post)}>
+       {posts.map((post,index)=>{
+        return <div key={index}>
         <div  className="margin"></div>
         <Post  post={{comments:post.comments,date:post.date,likes:post.likes,name:post.name,text:post.text}}></Post></div>
        })}
