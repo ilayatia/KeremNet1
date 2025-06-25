@@ -62,7 +62,7 @@ const Post: React.FC<PostProps> = ({ post }: PostProps) => {
     setExpanded(!expanded);
   };
   return (
-    <Card sx={{ width: 330 }}>
+    <Card className="margin" sx={{ width: 330 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -105,6 +105,7 @@ const Post: React.FC<PostProps> = ({ post }: PostProps) => {
           <Typography sx={{ marginBottom: 2 }}></Typography>
           <Typography sx={{ marginBottom: 2 }}>
             <input
+              placeholder="Enter comment:"
               value={newComment}
               onChange={(e) => {
                 SetNewComment(e.target.value);
