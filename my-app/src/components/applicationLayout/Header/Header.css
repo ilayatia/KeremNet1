@@ -3,6 +3,7 @@ img{
     border: solid;
     border-radius: 10px;
     border-color: wheat ;
+    margin: 0.5em;
 }
 .header{
   background-color: #282c34;

@@ -105,6 +105,7 @@ const Post: React.FC<PostProps> = ({ post }: PostProps) => {
           <Typography sx={{ marginBottom: 2 }}></Typography>
           <Typography sx={{ marginBottom: 2 }}>
             <input
+              placeholder="Enter comment:"
               value={newComment}
               onChange={(e) => {
                 SetNewComment(e.target.value);

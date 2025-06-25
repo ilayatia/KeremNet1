@@ -1,15 +1,15 @@
 import Navbar from "../NavBar/Navbar";
 import "./Header.css";
-import keremlogo from '../../../images/keremnet.png'
 export default function Header() {
+    const images = ["zebra.jpg","keremnet.png"]
   return (
     <header className="header">
       <div className="card">
         <span></span>
         <div className="content">KeremNet</div>
       </div>
-        <img src={keremlogo} sizes="10px"></img>
-
+      {images.map((image,index)=><img key={index} src={require(`../../../images/${image}`)}></img>)}
+        
     </header>
   );
 }
