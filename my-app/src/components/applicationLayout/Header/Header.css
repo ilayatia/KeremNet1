@@ -1,5 +1,6 @@
 img{
-    width:5em;
+    width: 80px;
+    height: 80px;
     border: solid;
     border-radius: 10px;
     border-color: wheat ;
@@ -11,10 +12,8 @@ img{
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  /* font-size: calc(10px + 2vmin); */
   color: white;
 }
-/* From Uiverse.io by htwarriors108 */ 
 .card {
   position: relative;
   width: 200px;
