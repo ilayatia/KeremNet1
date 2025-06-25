@@ -2,6 +2,7 @@ import Navbar from "../NavBar/Navbar";
 import zebra from "../../../images/zebra.jpg";
 import keremnet from "../../../images/keremnet.png";
 import "./Header.css";
+
 export default function Header() {
   const images = [keremnet, zebra];
   return (
