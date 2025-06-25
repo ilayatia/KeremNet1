@@ -10,7 +10,6 @@ export default function HomePage() {
     <>
       {posts.map((post, index) => (
         <div key={index}>
-          <div className="margin"></div>
           <Post post={post}></Post>
         </div>
       ))}
