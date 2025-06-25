@@ -4,14 +4,16 @@ import Navbar from "../NavBar/Navbar";
 import './Layout.css'
 import HomePage from "../../HomePage/HomePage";
 import Header from "../Header/Header";
+import { PropsWithChildren } from "react";
 
-export default function Layout(){
+const Layout:React.FC<PropsWithChildren> = ({children})=>{
     return <>
     <Header/>
     <Navbar/>
     <div className="main">
-        <HomePage/>
+        {children}
     </div>
     <Footer/>
     </>
 }
+export default Layout;

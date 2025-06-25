@@ -14,7 +14,9 @@ StartServer()
 function App() {
   return (
     <div className="App">
-        <Layout/>
+        <Layout>
+          <HomePage/>
+        </Layout>
     </div>
   );
 }
