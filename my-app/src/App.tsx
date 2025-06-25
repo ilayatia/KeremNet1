@@ -6,7 +6,7 @@ import Post from "./components/Post/Post";
 import HomePage from "./components/HomePage/HomePage";
 import { createServer } from "miragejs";
 import data from "./backend/data.json";
-import { StartServer } from "./backend/start-mock-server";
+import { StartServer } from "./backend/startMockServer";
 import Layout from "./components/applicationLayout/Layout/Layout";
 
 StartServer()
