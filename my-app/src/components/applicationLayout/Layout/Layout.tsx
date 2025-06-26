@@ -2,7 +2,7 @@ import { Home } from "@mui/icons-material";
 import Footer from "../Footer/Footer";
 import Navbar from "../NavBar/Navbar";
 import './Layout.css'
-import HomePage from "../../HomePage/HomePage";
+import HomePage from "../../Pages/HomePage/HomePage";
 import Header from "../Header/Header";
 import { PropsWithChildren } from "react";
 
