@@ -1,14 +1,39 @@
 import { useEffect, useState } from "react";
 import { PostModel } from "../../Models/Post";
 import { getPosts } from "../../backend/api";
+import e from "express";
+import { error } from "console";
 
-
-export default function useJson(url:string): PostModel[] {
+interface returnValue {
+  posts: PostModel[];
+  err: string;
+  loading: boolean;
+}
+export default function useJson(url: string): returnValue {
   let [posts, setPosts] = useState<PostModel[]>([]);
+  const [err, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    getPosts(url).then((posts)=>{setPosts(posts)})
+    const loadPosts = async () => {
+      try {
+        setLoading(true);
+        const {json,status} = await getPosts(url);
+        if (status === 200){
+          setPosts(json)
+        }
+        else{
+          setError("Failed to fetch...")
+         } 
+      } catch (e) {
+        console.log(e);
+        setError("Failed to fetch...");
+      } finally {
+          setLoading(false);
+      }
+    };
+    loadPosts();
   }, []);
 
-  return posts ;
+  return { posts, err, loading };
 }
