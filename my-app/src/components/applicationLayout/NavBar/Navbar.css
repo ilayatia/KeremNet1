@@ -15,6 +15,7 @@ li .a {
   color: white;
   padding:15px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 li .a:hover {
