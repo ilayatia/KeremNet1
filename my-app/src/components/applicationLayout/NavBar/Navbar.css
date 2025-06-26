@@ -10,13 +10,13 @@ li {
   float: left;
 }
 
-li a {
+li .a {
   display: block;
   color: white;
   padding:15px;
   cursor: pointer;
 }
 
-li a:hover {
+li .a:hover {
   background-color: #111;
 }

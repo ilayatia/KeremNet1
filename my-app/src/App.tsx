@@ -7,20 +7,19 @@ import HomePage from "./components/Pages/HomePage/HomePage";
 import { createServer } from "miragejs";
 import Layout from "./components/applicationLayout/Layout/Layout";
 import PostPage from "./components/Pages/PostPage/PostPage";
-import { BrowserRouter, Route, Routes } from "react-router";
-
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
+        <BrowserRouter>
       <Layout>
-      <BrowserRouter>
-      <Routes>
-        <Route path="/post" element={<PostPage/>} ></Route>
-        <Route path="/" element={<PostPage/>} ></Route>
-      </Routes>
-      </BrowserRouter>
+          <Routes>
+            <Route path="/post" element={<PostPage />}></Route>
+            <Route path="/" element={<HomePage />}></Route>
+          </Routes>
       </Layout>
+        </BrowserRouter>
     </div>
   );
 }
