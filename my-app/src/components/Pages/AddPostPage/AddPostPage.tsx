@@ -22,6 +22,8 @@ export default function AddPostPage() {
 }
   return (
     <div className="div-border">
+        <h2>Add Post </h2>
+        <h5>(fill all fields)</h5>
       <form onSubmit={onSubmit}>
         <label>
             Name:
