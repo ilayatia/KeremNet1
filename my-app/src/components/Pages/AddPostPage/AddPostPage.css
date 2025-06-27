@@ -1,2 +1,29 @@
-.add-post{
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid darkolivegreen;
+  border-radius: 4px;
+}
+input[type=text]:focus {
+  border: solid #555;
+  background-color: lightblue;
+}   
+button[type=submit] {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;   
+}
+.div-border{
+    border:solid #04AA6D;
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 4px;
+    background-color: cadetblue;
 }
