@@ -26,3 +26,16 @@ export const postComment = async (url: string, data: CommentModel):Promise<retur
   const status:number = response.status
   return {json,status};
 };
+
+export const addPost = async (url: string, data: CommentModel):Promise<returnType> => {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  const json =await response.json();
+  const status:number = response.status
+  return {json,status};
+};
